@@ -1,0 +1,146 @@
+ .entire{
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Add space between child elements */
+    align-items: center; 
+}
+
+.side{
+    display: flex;
+   
+}
+
+
+
+
+
+.hdocker{
+    margin: 50px;
+    background: rgba(173, 216, 230, 0.5);
+    /* border: 5px black; */
+    border-radius: 10px;
+    padding: 70px;
+    width: 50%;
+    flex:1;
+    height:max-content;
+    
+}
+
+.hdocker input{
+    border :none;
+    background-color: aliceblue;
+}
+
+.hdocker input:hover{
+    padding-left: 30px;
+    background-color: rgb(182, 200, 207);
+    border-radius: 15px;
+}
+.formbg{
+    
+  display: flex;
+  flex-direction: column;
+    padding: 10px;
+    align-items: left;
+}
+
+input{
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    width: 80%;
+    
+}
+
+button{
+    padding: 10px;
+    border: 5px;
+    border-radius: 15px;
+    background-color: grey;
+    margin-top: 25px;
+
+    color: white;
+    width: max-content;
+   
+}
+
+label{
+    margin-left: 0px;
+    margin-bottom: 10px;
+    /* font-style: italic; */
+    font-size: medium;
+    font-weight: bold;
+}
+select{
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 25px;
+    width: 80%;
+}
+
+.info{
+    background: linear-gradient(to bottom, #00008B, #0000A0);
+    background-color: #00008B;
+    color:aliceblue;
+    max-width: 50%;
+    /* border: 10px black; */
+    flex:1;
+    padding: 30px;
+    height: 300vh;
+   
+    
+
+   
+
+}
+
+.repo{
+    padding: 50px;
+    background-color: white;
+    height: fit-content;
+}
+
+.report{
+    height: max-content;
+    width: 50%;
+
+}
+
+.hea{
+    align-items: center;
+    font-size: x-large;
+}
+
+/* .attri{
+    font-size: small;
+    font-family: monospace;
+
+} */
+.note{
+    font-size: small;
+    font-family: monospace;
+    
+}
+
+.attri{
+    font-size: medium;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: red;
+}
+
+.tt{
+    font-size: xx-large;
+    background-color: bisque;
+}
+
+.note{
+    font-size: medium;
+
+}
+
+.nonattri{
+    color: #0000A0;
+}
+
+.hea{
+    background-color: aliceblue;
+} 
