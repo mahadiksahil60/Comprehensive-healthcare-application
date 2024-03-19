@@ -1,6 +1,6 @@
 // src/components/PredictForm.js
 
-
+import  tutorial  from "./tutorial.js";
 import "./Navbar.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./Navbar";
@@ -35,7 +35,7 @@ function AppRouter() {
       <Route path="/" exact component={Home} />
       <Route path="/lungs" component={LungDisease}/>
         <Route path="/heart-disease" component={HeartDisease} />
-   
+   <Route path="/tutorial" component={tutorial}/>
         <Route path='/obesity' component={PredictObesity}/>
         <Route path='/skindisease' component={skindisease}/>
         {/* Add more routes for other components/pages if needed */}

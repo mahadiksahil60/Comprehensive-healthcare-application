@@ -11,7 +11,11 @@ import tensorflow.keras as K
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.preprocessing.image import img_to_array
 from keras.models import load_model
-from keras.applications.xception import preprocess_input
+# from keras.applications.xception import preprocess_input
+# from efficientnet import preprocess_input
+from tensorflow.keras.applications import EfficientNetB3
+from tensorflow.keras.applications.efficientnet import preprocess_input
+
 from werkzeug.utils import secure_filename
 
 
@@ -35,10 +39,10 @@ CORS(
 )
 
 
-heart_disease_model = pickle.load(open("C:/Users/Sahil/Desktop/New folder/project/backend/Saved models/heart_disease_model.sav","rb",))
-obesity_model = pickle.load(open("C:/Users/Sahil/Desktop/New folder/project/backend/Saved models/obesity_model.sav","rb",))
-cancer_model = pickle.load(open("C:/Users/Sahil/Desktop/New folder/project/backend/Saved models/cancer_model.sav","rb",))
-model = load_model('C:/Users/Sahil/Desktop/New folder/project/backend/Saved models/best_model')
+heart_disease_model = pickle.load(open("D:/Comprehensive-healthcare-application/backend/Saved models/heart_disease_model.sav","rb",))
+obesity_model = pickle.load(open("D:/Comprehensive-healthcare-application/backend/Saved models/obesity_model.sav","rb",))
+# cancer_model = pickle.load(open("C:/Users/Sahil/Desktop/New folder/project/backend/Saved models/cancer_model.sav","rb",))
+model = load_model("D:/Skin Disease Clssification-99.52.h5")
 UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -167,11 +171,14 @@ def allowed_file(filename):
 
 
 def preprocess_image(img):
-    img = image.load_img(img, target_size=(299, 299))
+    img = image.load_img(img, target_size=(150, 150))
     img_array = image.img_to_array(img)
     img_array = np.expand_dims(img_array, axis=0)
     img_array = preprocess_input(img_array)
     return img_array
+
+
+
 
 @app.route('/skindisease', methods=['POST'])
 def skindisease():
@@ -179,7 +186,7 @@ def skindisease():
         return jsonify({'error': 'No file part'})
 
     file = request.files['file']
-
+    print(file)
     if file.filename == '':
         return jsonify({'error': 'No selected file'})
 
@@ -192,6 +199,7 @@ def skindisease():
         img_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         img_array = preprocess_image(img_path)
         predictions = model.predict(img_array)
+        print(predictions)
 
         # Cleanup old files (customize this based on your strategy)
         

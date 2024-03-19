@@ -1,3 +1,4 @@
 backend/venv/
+backend/test_env/
 *.pyd
 backend/new_venv/

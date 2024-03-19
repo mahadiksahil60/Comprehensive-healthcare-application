@@ -25,7 +25,7 @@ export default function Navbar() {
               <Link to="/heart-disease">💗Heart Health</Link>
             </li>
             <li className = "text-white pr-3 pl-3 rounded-md hover:text-slate-600 hover:font-bold  hover:bg-blue-300 active:bg-white focus:bg-red-300">
-              <Link to="/skindisease">New Module</Link>
+              <Link to="/skindisease">💊Skin Disease Detection</Link>
             </li>
 
           </ul>
@@ -39,27 +39,8 @@ export default function Navbar() {
           </button>
         </div>
      
-
-        </div>
-        {isOpen && (
-        <div className="sm:hidden md:hidden lg:hidden">
-          <ul className="flex flex-col space-y-2">
-          <li className = "text-white">
-              <Link to="/">🏠</Link>
-            </li>
-            <li className = "text-white">
-              <Link to="/lungs">🫁Lung Health</Link>
-            </li>
-           
-            <li className = "text-white">
-              <Link to="/heart-disease">💗Heart Health</Link>
-            </li>
-            <li className = "text-white">
-              <Link to="/skindisease">New Module</Link>
-            </li>
-          </ul>
-        </div>
-      )}
-      </nav>
+         </div>
+        </nav>
+        
     );
   }
