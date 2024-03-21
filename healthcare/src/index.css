@@ -37,3 +37,7 @@ code {
 .animate-scanner {
   animation: scannerAnimation 3s ease-in-out infinite;
 }
+
+.darken {
+  filter: brightness(70%);
+}

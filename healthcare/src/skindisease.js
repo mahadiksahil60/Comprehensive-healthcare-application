@@ -12,6 +12,7 @@ import { Popupreport } from './popupreport.js';
 
 
 function Skindisease() {
+  const [isClicked, setIsClicked] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [file, setFile] = useState(null);
   const [predictions, setPredictions] = useState([]);
@@ -40,6 +41,10 @@ function Skindisease() {
       return;
     }
 
+    setIsClicked(true);
+    setTimeout(() => {
+      setIsClicked(false);
+    }, 200);
     try {
       const formData = new FormData();
       formData.append('file', file);
@@ -67,6 +72,7 @@ function Skindisease() {
         setPercentage(maxProbability * 100);
         console.log('Max Probability:', maxProbability);
         setShowPopup(true);
+
         // Handle other logic as needed
       } else {
         console.error('Invalid predictions format');
@@ -110,8 +116,16 @@ function Skindisease() {
             type="file"
             onChange={handleFileChange}
           />
-          <button className="bg-gradient-to-r from-slate-400 to-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full shadow-md transition duration-300 ease-in-out" onClick={handleUpload}>Detect</button>
-          {showPopup && <Popupreport predictions={predictions} percentage={percentage} name={name} onClose={handleClosePopup} />}
+         <button
+      className={`relative bg-gradient-to-r from-slate-500 to-blue-800 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full shadow-md transition duration-300 ease-in-out overflow-hidden focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transform hover:scale-105 active:scale-95 ${
+        isClicked ? 'darken' : ''
+      }`}
+      onClick={handleUpload}
+    >
+      Detect
+      <span className="absolute top-0 left-0 w-full h-full bg-gray-800 opacity-25"></span>
+    </button>
+                   {showPopup && <Popupreport predictions={predictions} percentage={percentage} name={name} onClose={handleClosePopup} />}
           <Link className="font-serif  font-extralight text-slate-200 hover:text-blue-900 underline  underline-offset-4 p-4" to="/tutorial">To know how to use this tool</Link>
         </div>
 
